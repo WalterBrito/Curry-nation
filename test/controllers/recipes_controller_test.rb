@@ -1,63 +1,48 @@
-class RecipesControllerTest < ActionController::TestCase
+require 'test_helper'
+
+class RecipesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @recipe = recipe(:one)
+    @recipe = recipes(:one)
   end
 
   test "should get index" do
-    get :index
+    get recipes_url
     assert_response :success
-    assert_not_nil assigns(:recipes)
   end
 
   test "should get new" do
-    get :new
+    get new_recipe_url
     assert_response :success
   end
 
   test "should create recipe" do
     assert_difference('Recipe.count') do
-      post :create, recipe: { cooking_time:
-        @recipe.cooking_time, cuisine_id:
-        @recipe.cuisine_id, food_preferences_id:
-        @recipe.food_preference_id, food_type:
-        @recipe.food_type, ingredients:
-        @recipe.ingredients, level_of_difficulty:
-        @recipe.level_of_difficulty, procedure:
-        @recipe.procedure, servings: @recipe.servings,
-        title: @recipe.title }
+      post recipes_url, params: { recipe: { cooking_time: @recipe.cooking_time, cuisine_id: @recipe.cuisine_id, difficulty_level: @recipe.difficulty_level, food_preference_id: @recipe.food_preference_id, food_type_id: @recipe.food_type_id, ingredients: @recipe.ingredients, procedure: @recipe.procedure, title: @recipe.title } }
     end
 
-    asserts_redirected_to recipe_path(assigns(:recipe))
+    assert_redirected_to recipe_url(Recipe.last)
   end
 
   test "should show recipe" do
-    get :show, id: @recipe
+    get recipe_url(@recipe)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @recipe
+    get edit_recipe_url(@recipe)
     assert_response :success
   end
 
   test "should update recipe" do
-    patch :update, id: @recipe, recipe: { cooking_time:
-      @recipe.cooking_time, cuisine_id:
-      @recipe.cuisine_id, food_preferences_id:
-      @recipe.food_preference_id, food_type:
-      @recipe.food_type, ingredients:
-      @recipe.ingredients, level_of_difficulty:
-      @recipe.level_of_difficulty, procedure:
-      @recipe.procedure, servings: @recipe.servings,
-      title: @recipe.title }
-    asserts_redirected_to recipe_path(assigns(:recipe))
+    patch recipe_url(@recipe), params: { recipe: { cooking_time: @recipe.cooking_time, cuisine_id: @recipe.cuisine_id, difficulty_level: @recipe.difficulty_level, food_preference_id: @recipe.food_preference_id, food_type_id: @recipe.food_type_id, ingredients: @recipe.ingredients, procedure: @recipe.procedure, title: @recipe.title } }
+    assert_redirected_to recipe_url(@recipe)
   end
 
   test "should destroy recipe" do
     assert_difference('Recipe.count', -1) do
-      delete :destroy, id: @recipe
+      delete recipe_url(@recipe)
     end
-    assert_redirected_to recipes_path
+
+    assert_redirected_to recipes_url
   end
 end
-

@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+food_types = ["curry", "Dessert", "Sides", "Breakfast"]
+food_types.each{|d| FoodType.where(:name => d).create}
+food_types.each{|d| FoodType.where(:name => d).first_or_create}
+
+food_preferences = ["Vegetarian","Vegan", "Meat", "Dairy"]
+food_preferences.each{|d| FoodPreference.where(:name => d).first_or_create}
+
+cuisines = ["Italian", "Mexican", "Indian", "Chinese"]
+cuisines.each{|d| Cuisine.where(:name => d).first_or_create}

@@ -1,0 +1,64 @@
+<%= form_with(model: recipe, local: true) do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :recipe_title %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :food_preference %>
+    <%= form.select(:food_preference_id,
+        options_from_collection_for_select(FoodPreference.all,
+        :id, :name), {:prompt => 'Please Choose'}, :class => "form-control") %>
+   </div><br>
+
+  <div class="form-group">
+    <%= form.label :food_type %>
+    <%= form.select(:food_type_id,
+        options_from_collection_for_select(FoodType.all,
+        :id, :name), {:prompt => 'Please Choose'}, :class => "form-control") %>
+  </div><br>
+
+  <div class="form-group">
+    <%= form.label :food_cuisine %>
+    <%= form.select(:cuisine_id,
+        options_from_collection_for_select(Cuisine.all,
+        :id, :name), {:prompt => 'Please Choose'}, :class => "form-control") %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :cooking_time %>
+    <%= form.text_field :cooking_time, id: :recipe_cooking_time %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :difficulty_level %>
+    <%= form.select :difficulty_level, Recipe::DIFFICULTY,{},
+        :class => "form-control"%>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :ingredients %>
+    <%= form.text_area :ingredients, id: :recipe_ingredients %>
+  </div>
+
+  <div class="field">
+    <%= form.label :procedure %>
+    <%= form.text_area :procedure, id: :recipe_procedure %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
