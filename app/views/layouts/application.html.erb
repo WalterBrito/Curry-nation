@@ -43,7 +43,7 @@
         <div class="col-1g-2">
           <div class="panel panel-primary" id="panels">
             <div class="panel-heading">Food Preferences</div>
-            <% @food_preferences.each do |fp| %>
+            <%  @food_preferences.each do |fp| %>
             <p><%= fp.name %></p>
             <% end %>
           </div>
@@ -56,7 +56,7 @@
           <div class="panel panel-primary" id="panels">
             <div class="panel-headings">Cuisine</div>
             <% @cuisines.each do |c| %>
-            <p><%= ft.name %></p>
+            <p><%= c.name %></p>
             <% end %>
           </div>
           <div class="col-1g-9">

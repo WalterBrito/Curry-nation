@@ -1,4 +1,8 @@
 class Recipe < ApplicationRecord
-  DIFFICULTY=%w(Easy Medium Hard)
+  # associations
+  belongs_to :food_preference
   belongs_to :food_type
+  belongs_to :cuisine
+
+  DIFFICULTY=%w(Easy Medium Hard)
 end
