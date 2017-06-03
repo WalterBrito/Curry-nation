@@ -35,6 +35,8 @@ gem 'devise'
 gem 'pry-rails'
 # Beautifying
 gem 'rails-bootstrap'
+gem 'bootstrap-sass'
+gem 'jquery-ui-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
