@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails curry-nation: test" uuid="ba39bbb6-b7ba-4729-9fe6-285ed0b62ef3">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails curry-nation: development" uuid="90cfda0f-2d99-4d1e-b64b-9e3341d5eaa2">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>postgres</user-name>
+    </data-source>
+    <data-source name="Rails curry-nation: production" uuid="1ae38fd9-0918-446b-8635-aa7a4dde356a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>curry-nation</user-name>
+    </data-source>
+  </component>
+</project>
